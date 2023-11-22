@@ -10,6 +10,7 @@ import (
 	"strings"
 )
 
+// Instruction represents a decoded ARM instruction.
 type Instruction struct {
 	rawInstruction  string
 	lineValue       uint64
