@@ -152,6 +152,7 @@ func WriteInstructions(filePath string, list []Instruction) {
 	}
 }
 
+// ProcessInstructionList processes the binary instructions.
 func ProcessInstructionList(list []Instruction) {
 	breakHit := false
 	for i := 0; i < len(list); i++ {
@@ -160,6 +161,7 @@ func ProcessInstructionList(list []Instruction) {
 			opcodeMasking(&list[i])
 			opcodeTranslation(&list[i])
 			switch list[i].instructionType {
+			// handle different instruction types	
 			case "B":
 				processBType(&list[i])
 			case "I":
@@ -184,7 +186,7 @@ func ProcessInstructionList(list []Instruction) {
 	}
 }
 
-// translates raw instruction to an unsigned 64 bit int
+// translatesToInt raw instruction to an unsigned 64 bit int
 func translateToInt(ins *Instruction) {
 	i, err := strconv.ParseUint(ins.rawInstruction, 2, 64)
 	if err == nil {
