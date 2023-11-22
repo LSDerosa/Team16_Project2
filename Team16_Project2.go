@@ -332,6 +332,7 @@ func parse2Complement(i uint64, binaryLength uint) int64 {
 
 func outputRegistersToFile(registry []int, simOutputFile *os.File, myMap map[int]map[int]int) {
 	fmt.Fprintf(simOutputFile, "registers:\n")
+	// Iterate over the registry in groups of 8 registers
 	for i := 0; i < len(registry); i += 8 {
 		end := i + 8
 		if end > len(registry) {
