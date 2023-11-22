@@ -363,7 +363,7 @@ func outputRegistersToFile(registry []int, simOutputFile *os.File, myMap map[int
 			fmt.Fprintf(simOutputFile, "\n")
 		}
 	}
-	fmt.Fprintf(simOutputFile, "============\n")
+	fmt.Fprintf(simOutputFile, "=====================\n")
 }
 
 func simulateInstruction(simOutput string, list []Instruction, registry []int, myMap map[int]map[int]int) {
