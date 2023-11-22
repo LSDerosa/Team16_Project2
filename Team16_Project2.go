@@ -453,9 +453,9 @@ func simulateInstruction(simOutput string, list []Instruction, registry []int, m
 				cycle++
 				//*****MOVZ*****
 			case opcode >= 1684 && opcode <= 1687:
-				fmt.Fprintf(simOutputFile, "Cycle:%d\t%d\t%s\t\n", cycle, list[i].memLoc, list[i].op)
-				outputRegistersToFile(registry, simOutputFile, otherData)
-				cycle++
+				fmt.Fprintf(simOutputFile, "Cycle:%d\t%d\t%s R%d, #%d, LSL %d\n", cycle, list[i].memLoc, list[i].op, list[i].rd, list[i].field, list[i].shiftCode)
+    				outputRegistersToFile(registry, simOutputFile, otherData)
+   			 	cycle++
 				//*****MOVK*****
 			case opcode >= 1940 && opcode <= 1943:
 				fmt.Fprintf(simOutputFile, "Cycle:%d\t%d\t%s\t\n", cycle, list[i].memLoc, list[i].op)
