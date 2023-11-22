@@ -33,17 +33,23 @@ type Instruction struct {
 }
 
 func ReadBinary(filePath string) {
+	    // Open the file
 	file, err := os.Open(filePath)
 
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
+	defer file.Close() // ensure the file is closed when the function exists
 
+	// Initialize a scanner to read the file line by line
 	scanner := bufio.NewScanner(file)
+	
 	var linenumber uint64
-	linenumber = 96
+	linenumber = 96 //Start memory location
+	
+	//Iterate each line in the file
 	for scanner.Scan() {
+		// read the instruction from file and remove spaces
 		instruction := strings.ReplaceAll(scanner.Text(), " ", "")
 		InstructionList = append(InstructionList, Instruction{rawInstruction: instruction, memLoc: linenumber})
 		linenumber += 4
