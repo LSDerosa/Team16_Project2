@@ -41,8 +41,6 @@ func ReadBinary(filePath string) {
 		log.Fatal(err)
 	}
 	defer file.Close() // ensure the file is closed when the function exists
-
-	// Initialize a scanner to read the file line by line
 	scanner := bufio.NewScanner(file)
 	
 	var linenumber uint64
@@ -57,6 +55,7 @@ func ReadBinary(filePath string) {
 	}
 }
 
+// WriteInstructions writes disassembled instructions to a file.
 func WriteInstructions(filePath string, list []Instruction) {
 	outputFile, err := os.Create(filePath)
 
