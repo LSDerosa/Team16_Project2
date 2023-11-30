@@ -606,6 +606,7 @@ func simulateInstruction(simOutput string, list []Instruction, registry []int, m
 				fmt.Fprintf(simOutputFile, "Cycle:%d\t%d\t%s\t\n", cycle, list[i].memLoc, list[i].op)
 				outputRegistersToFile(registry, simOutputFile, otherData)
 				cycle++
+				breakHit = true
 			}
 		}
 	}
